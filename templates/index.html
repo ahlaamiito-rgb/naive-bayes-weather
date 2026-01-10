@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Naïve Bayes Weather Prediction</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="static/styles.css">
+
+</head>
+
+<body>
+
+<div class="glass-card">
+    <h1>🌦 Weather Prediction</h1>
+    <p class="subtitle">Naïve Bayes Machine Learning Model</p>
+
+    <form id="predictForm">
+        <label>☀ Outlook</label>
+        <select name="outlook">
+            <option>Sunny</option>
+            <option>Overcast</option>
+            <option>Rain</option>
+        </select>
+
+        <label>🌡 Temperature</label>
+        <select name="temperature">
+            <option>Hot</option>
+            <option>Mild</option>
+            <option>Cool</option>
+        </select>
+
+        <label>💧 Humidity</label>
+        <select name="humidity">
+            <option>High</option>
+            <option>Normal</option>
+        </select>
+
+        <label>💨 Wind</label>
+        <select name="wind">
+            <option>Weak</option>
+            <option>Strong</option>
+        </select>
+
+<button type="button" id="predictBtn">🔮 Predict</button>
+    </form>
+
+    <div id="result"></div>
+
+    <footer>
+        Artificial Intelligence Project • SEM 7
+    </footer>
+</div>
+
+<script>
+    const button = document.getElementById("predictBtn");
+    const form = document.getElementById("predictForm");
+    const resultDiv = document.getElementById("result");
+
+    button.addEventListener("click", async () => {
+        const formData = new FormData(form);
+
+        // Reset result for re-prediction
+        resultDiv.style.display = "none";
+        resultDiv.className = "";
+
+        const response = await fetch("/predict", {
+            method: "POST",
+            body: formData,
+            headers: {
+                "Cache-Control": "no-cache"
+            }
+        });
+
+        const data = await response.json();
+
+        resultDiv.style.display = "block";
+        resultDiv.innerText = "Prediction: " + data.result;
+
+        if (data.result === "Yes") {
+            resultDiv.classList.add("yes");
+        } else {
+            resultDiv.classList.add("no");
+        }
+    });
+</script>
+
+</body>
+</html>
