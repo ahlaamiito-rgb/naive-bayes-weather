@@ -2,11 +2,13 @@
 
 An applied machine learning project that predicts weather conditions using the **Naive Bayes classification algorithm**.  
 This project demonstrates data preprocessing, model training, and deployment through a simple Flask web application.
+Planned evaluation using accuracy, precision, recall, and confusion matrix.
 
 ---
 
 ## 🎯 Project Objective
 To build and deploy a probabilistic classification model that predicts weather outcomes based on historical input features, showcasing an end-to-end data science workflow.
+The model is trained on a structured weather dataset
 
 ---
 
@@ -14,7 +16,7 @@ To build and deploy a probabilistic classification model that predicts weather o
 - Data preprocessing and feature handling
 - Naive Bayes classifier implementation
 - Model inference through a web interface
-- Lightweight Flask deployment
+- Lightweight Flask-based model deployment
 
 ---
 
@@ -35,10 +37,11 @@ To build and deploy a probabilistic classification model that predicts weather o
 ---
 
 ## 📂 Project Structure
-├── app.py # Flask application & model logic
-├── templates/ # HTML templates
-├── static/ # CSS and assets
-├── requirements.txt # Dependencies
+
+├── app.py              # Flask application & model logic
+├── templates/          # HTML templates
+├── static/             # CSS and assets
+├── requirements.txt    # Dependencies
 └── README.md
 
 
@@ -60,17 +63,16 @@ python app.py
 http://127.0.0.1:5000
 
 ```
-## Future Improvements
-
-Feature engineering and dataset expansion
-
-Model evaluation metrics (accuracy, precision, recall)
-
-Comparison with other classifiers
-
-Cloud deployment (Render / Hugging Face / Heroku)
-
-Improved UI/UX
+## 🚀 Future Improvements
+- Feature engineering and dataset expansion
+  
+- Model evaluation metrics (accuracy, precision, recall)
+  
+- Comparison with other classifiers
+ 
+- Cloud deployment (Render / Hugging Face / Heroku)
+  
+- Improved UI/UX
 
 ## 👩‍💻 Author
 
